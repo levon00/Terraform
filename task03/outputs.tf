@@ -1,9 +1,9 @@
-output "resource_group_id" {
+output "rg_id" {
   value       = azurerm_resource_group.rg.id
   description = "Resouce Gruop ID"
 }
 
-output "blob_endpoint" {
+output "sa_blob_endpoint" {
   value       = azurerm_storage_account.sa.primary_blob_endpoint
   description = "Primary Blob Endpoint"
 }
