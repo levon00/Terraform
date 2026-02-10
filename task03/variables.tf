@@ -18,9 +18,14 @@ variable "Vnet_address" {
   description = "Vnet address spaces"
 }
 
-variable "subnets" {
-  type        = map(object({ subnets_prefixes = string }))
-  description = "map of subnets Variable."
+variable "subnet_names" {
+  type        = list(string)
+  description = "Subnates names variable"
+}
+
+variable "subnet_prefixes" {
+  type        = list(string)
+  description = "subnet prefixes variable"
 }
 
 variable "location" {

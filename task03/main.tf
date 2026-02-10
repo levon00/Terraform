@@ -26,9 +26,15 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 resource "azurerm_subnet" "sb" {
-  for_each             = var.subnets
-  name                 = each.key
+  name                 = var.subnet_names[0]
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = [each.value.subnets_prefixes]
+  address_prefixes     = [var.subnet_prefixes[0]]
+  resource_group_name  = azurerm_resource_group.rg.name
+}
+
+resource "azurerm_subnet" "sb1" {
+  name                 = var.subnet_names[1]
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = [var.subnet_prefixes[1]]
   resource_group_name  = azurerm_resource_group.rg.name
 }
